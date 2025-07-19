@@ -38,23 +38,25 @@ const statData = [
 
 const StatCards = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
       {statData.map((item) => (
         <Card
           key={item.title}
-          className="bg-white shadow rounded-xl px-5 py-4 flex items-center justify-between"
+          className="bg-white dark:bg-zinc-900 shadow rounded-xl px-5 py-4 flex items-center justify-between transition-colors"
         >
           <CardContent className="p-0 w-full flex justify-between items-center">
-            <div>
-              <p className="text-sm text-muted-foreground">{item.title}</p>
-              <h3 className="text-2xl font-bold text-slate-800">
+            <div className="space-y-1">
+              <p className="text-sm text-muted-foreground dark:text-zinc-400">
+                {item.title}
+              </p>
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-white">
                 {item.value}
               </h3>
               <p className={cn("text-sm font-semibold", item.trendColor)}>
                 {item.change}
               </p>
             </div>
-            <div className="w-20 h-10">
+            <div className="w-20 h-10 shrink-0">
               <svg
                 viewBox="0 0 100 40"
                 fill="none"

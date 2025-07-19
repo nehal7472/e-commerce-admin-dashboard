@@ -50,26 +50,25 @@ const ProductTable = ({ name }) => {
 
   useEffect(() => {
     let filtered = [...products];
-
     if (categoryFilter) {
       filtered = filtered.filter((p) => p.category.name === categoryFilter);
     }
-
     if (statusFilter) {
       filtered = filtered.filter((p) => p.status === statusFilter);
     }
-
     setFilteredProducts(filtered);
   }, [categoryFilter, statusFilter, products]);
 
   const categories = [...new Set(products.map((p) => p.category.name))];
-  const statuses = ["Pending", "Shipping", "Completed", "Refund"];
+  const statuses = Object.keys(STATUS_COLORS);
 
   return (
-    <div className="p-6 bg-white rounded-xl shadow-md">
-      <div className="flex items-center justify-between mb-4">
-        <h2 className="text-xl font-semibold">{name}</h2>
-        <div className="flex gap-2">
+    <div className="p-4 sm:p-6 bg-white dark:bg-zinc-900 rounded-xl shadow-md transition-colors">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
+        <h2 className="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">
+          {name}
+        </h2>
+        <div className="flex gap-2 flex-wrap">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="outline" className="flex items-center gap-1">
@@ -116,39 +115,58 @@ const ProductTable = ({ name }) => {
         </div>
       </div>
 
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Product</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Price</TableHead>
-            <TableHead>Status</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {filteredProducts.map((product) => (
-            <TableRow key={product.id}>
-              <TableCell className="flex items-center gap-3">
-                <Avatar className="h-8 w-8">
-                  <AvatarImage src={product.images[0]} alt={product.title} />
-                </Avatar>
-                <span className="font-medium">{product.title}</span>
-              </TableCell>
-              <TableCell>{product.category.name}</TableCell>
-              <TableCell>${product.price.toFixed(2)}</TableCell>
-              <TableCell>
-                <span
-                  className={`text-sm font-medium ${
-                    STATUS_COLORS[product.status]
-                  }`}
-                >
-                  {product.status}
-                </span>
-              </TableCell>
+      <div className="overflow-x-auto rounded-md">
+        <Table>
+          <TableHeader>
+            <TableRow>
+              <TableHead className="text-gray-600 dark:text-gray-300">
+                Product
+              </TableHead>
+              <TableHead className="text-gray-600 dark:text-gray-300">
+                Category
+              </TableHead>
+              <TableHead className="text-gray-600 dark:text-gray-300">
+                Price
+              </TableHead>
+              <TableHead className="text-gray-600 dark:text-gray-300">
+                Status
+              </TableHead>
             </TableRow>
-          ))}
-        </TableBody>
-      </Table>
+          </TableHeader>
+          <TableBody>
+            {filteredProducts.map((product) => (
+              <TableRow
+                key={product.id}
+                className="hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
+              >
+                <TableCell className="flex items-center gap-3">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={product.images[0]} alt={product.title} />
+                  </Avatar>
+                  <span className="font-medium text-gray-800 dark:text-white">
+                    {product.title}
+                  </span>
+                </TableCell>
+                <TableCell className="text-gray-700 dark:text-gray-300">
+                  {product.category.name}
+                </TableCell>
+                <TableCell className="text-gray-700 dark:text-gray-300">
+                  ${product.price.toFixed(2)}
+                </TableCell>
+                <TableCell>
+                  <span
+                    className={`text-sm font-medium ${
+                      STATUS_COLORS[product.status]
+                    }`}
+                  >
+                    {product.status}
+                  </span>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
     </div>
   );
 };
