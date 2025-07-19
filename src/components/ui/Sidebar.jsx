@@ -15,7 +15,7 @@ const sidebarLinks = [
   { name: "Analytics", icon: <FaChartBar />, path: "order" },
   { name: "Orders", icon: <FaShoppingCart />, path: "products" },
   { name: "Users", icon: <FaUsers />, path: "customer" },
-  { name: "Search", icon: <FaSearch />, path: "/admin/search" },
+  { name: "Search", icon: <FaSearch />, path: "search" },
   { name: "Products", icon: <FaBox />, path: "create-new-customer" },
 ];
 
