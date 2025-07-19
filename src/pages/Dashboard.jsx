@@ -32,7 +32,7 @@ export default function Dashboard() {
         <ForeCast />
       </div>
       <div className="pb-6">
-        <ProductTable name="Latest Orders" />
+        <ProductTable name="Latest Orders" productsTable = 'Products' />
       </div> 
     </d>
   );

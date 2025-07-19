@@ -9,7 +9,7 @@ const Order = () => {
       <StatCards />
       <LineChartComponent name="Dashboard" color="#FFA500" />
       <div className="pb-6">
-        <ProductTable name="Latest Orders" />
+        <ProductTable name="Latest Orders" productsTable = 'OrderID' />
       </div>
     </div>
   );

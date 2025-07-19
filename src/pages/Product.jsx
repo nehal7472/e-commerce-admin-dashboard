@@ -27,7 +27,7 @@ const Product = () => {
         </div>
       </div>
       <div className="pb-6">
-        <ProductTable name="Orders" />
+        <ProductTable name="Orders" productsTable= 'Orders'/>
       </div>
     </div>
   );

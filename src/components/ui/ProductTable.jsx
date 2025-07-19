@@ -29,7 +29,7 @@ const getRandomStatus = () => {
   return statuses[Math.floor(Math.random() * statuses.length)];
 };
 
-const ProductTable = ({ name }) => {
+const ProductTable = ({ name, productsTable }) => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState(null);
@@ -120,7 +120,7 @@ const ProductTable = ({ name }) => {
           <TableHeader>
             <TableRow>
               <TableHead className="text-gray-600 dark:text-gray-300">
-                Product
+                {productsTable}
               </TableHead>
               <TableHead className="text-gray-600 dark:text-gray-300">
                 Category
@@ -139,14 +139,26 @@ const ProductTable = ({ name }) => {
                 key={product.id}
                 className="hover:bg-gray-100 dark:hover:bg-zinc-800 transition"
               >
-                <TableCell className="flex items-center gap-3">
-                  <Avatar className="h-8 w-8">
-                    <AvatarImage src={product.images[0]} alt={product.title} />
-                  </Avatar>
-                  <span className="font-medium text-gray-800 dark:text-white">
-                    {product.title}
-                  </span>
-                </TableCell>
+                {productsTable == "Products" ? (
+                  <TableCell className="flex items-center gap-3">
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage
+                        src={product.images[0]}
+                        alt={product.title}
+                      />
+                    </Avatar>
+                    <span className="font-medium text-gray-800 dark:text-white">
+                      {product.title}
+                    </span>
+                  </TableCell>
+                ) : (
+                  <TableCell className="flex items-center gap-3">
+                    <span className="font-medium text-gray-800 dark:text-white">
+                      {product.id}
+                    </span>
+                  </TableCell>
+                )}
+
                 <TableCell className="text-gray-700 dark:text-gray-300">
                   {product.category.name}
                 </TableCell>
