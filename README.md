@@ -1,12 +1,35 @@
-# React + Vite
+# React Admin Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Link : 
 
-Currently, two official plugins are available:
+A full-featured **Admin Dashboard** built with React, featuring modern tools and best practices for building scalable web applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **React** with functional components and hooks  
+- **React Router** for client-side routing and nested routes  
+- **Redux Toolkit** for state management with ease and performance  
+- **ShadCN UI** components for consistent and accessible UI elements  
+- **Tailwind CSS** for utility-first, responsive styling  
+- Dark mode support with smooth theme toggling  
+- Sidebar navigation with active state highlighting  
+- Modular and maintainable code architecture  
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 14.x  
+- npm or yarn  
+
+### Installation
+
+1. Clone the repo
+
+   ```bash
+   git clone https://github.com/your-username/react-admin-dashboard.git
+   cd react-admin-dashboard
