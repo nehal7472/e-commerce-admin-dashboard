@@ -13,8 +13,8 @@ function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/admin" element={<AdminLayout />}>
-            <Route index element={<Dashboard />} />
+          <Route path="/" element={<AdminLayout />}>
+            <Route path="admin" element={<Dashboard />} />
             <Route path="order" element={<Order />} />
             <Route path="products" element={<Product />} />
             <Route path="customer" element={<Customer />} />
