@@ -11,7 +11,7 @@ import {
 import ThemeToggle from "../../features/themeToggle";
 
 const sidebarLinks = [
-  { name: "Dashboard", icon: <FaHome />, path: "/admin" },
+  { name: "Dashboard", icon: <FaHome />, path: "dashboard" },
   { name: "Analytics", icon: <FaChartBar />, path: "order" },
   { name: "Orders", icon: <FaShoppingCart />, path: "products" },
   { name: "Users", icon: <FaUsers />, path: "customer" },

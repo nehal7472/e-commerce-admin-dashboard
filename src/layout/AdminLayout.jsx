@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 
 const AdminLayout = () => {
   const location = useLocation();
-  const pathName = location.pathname.split("/")[2] || "Dashboard";
+  const pathName =
+    location.pathname.split("/").filter(Boolean).pop() || "Dashboard";
 
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const darkMode = useSelector((state) => state.theme.darkMode);
